@@ -64,7 +64,7 @@ assert.match(html, /<h1>Production Line Simulator V1<\/h1>/);
 assert.match(html, /Interactive manufacturing model/);
 assert.match(html, /Model processes, resources, queues, and bottlenecks\./);
 assert.match(html, /class="brand-mark"[\s\S]*?class="brand-product-body"/);
-assert.match(html, /Developed by Yousuf Yamani · 14 August 2026/);
+assert.match(html, /Developed by Yousuf Yamani · 15 August 2026/);
 assert.doesNotMatch(html, /Prepared by: Project Owner|Cycle time = the longer of manual time per operator or machine time per automatic machine/);
 assert.doesNotMatch(html, /Cycle = slower of operator workload and automatic-machine workload/);
 assert.doesNotMatch(html, /Industrial flow laboratory|<h1>Constraint Line<\/h1>/);

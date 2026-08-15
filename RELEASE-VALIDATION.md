@@ -1,6 +1,6 @@
 # Production Line Simulator V1 — Release Validation
 
-Validation date: **14 August 2026**  
+Validation date: **15 August 2026**  
 Release file: `release/Production-Line-Simulator-V1.html`
 
 ## Result

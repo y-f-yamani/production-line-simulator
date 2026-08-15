@@ -2,7 +2,7 @@
 
 All notable changes to Production Line Simulator are documented here.
 
-## 1.0.0 — 2026-08-14
+## 1.0.0 — 2026-08-15
 
 - Added a permanent release-candidate stress suite covering 192 formula combinations, 10,000-product runs, a 48-process line, parallel/sampled/scheduled batches, PCB/PCBA conversion, and multi-line isolation.
 - Enforced the documented 1–10,000 target range in application logic to prevent oversized manual entries from causing excessive memory allocation.
