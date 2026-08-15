@@ -12,8 +12,8 @@ capacity. It supports regular, batch, chamber, PCB, and PCBA processes.
 
 ### Run the simulator — steps
 
-1. Click **`release`** in the file list.
-2. Click **`Production-Line-Simulator-V1.html`**.
+1. Click the [`release` folder](https://github.com/y-f-yamani/production-line-simulator/tree/main/release).
+2. Click [`Production-Line-Simulator-V1.html`](https://github.com/y-f-yamani/production-line-simulator/blob/main/release/Production-Line-Simulator-V1.html).
 3. Click the **Download raw file** button.
 4. Save the file on your computer or phone.
 5. Open the saved file with Chrome, Edge, Safari, or Firefox.
@@ -83,8 +83,8 @@ share it, including commercially. The software is provided as-is.
 
 ### خطوات تشغيل المحاكي
 
-1. اضغط على مجلد **`release`** في قائمة الملفات.
-2. اضغط على ملف **`Production-Line-Simulator-V1.html`**.
+1. اضغط على [مجلد `release`](https://github.com/y-f-yamani/production-line-simulator/tree/main/release).
+2. اضغط على [ملف `Production-Line-Simulator-V1.html`](https://github.com/y-f-yamani/production-line-simulator/blob/main/release/Production-Line-Simulator-V1.html).
 3. اضغط زر **Download raw file**.
 4. احفظ الملف على الكمبيوتر أو الهاتف.
 5. افتح الملف باستخدام Chrome أو Edge أو Safari أو Firefox.
