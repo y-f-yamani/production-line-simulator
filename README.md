@@ -126,7 +126,7 @@ share it, including commercially. The software is provided as-is.
 
 ### المطور
 
-تم التطوير بواسطة **Yousuf Yamani** · **15 أغسطس 2026**
+تم التطوير بواسطة **يوسف يماني** · **15 أغسطس 2026**
 
 ### الرخصة
 
