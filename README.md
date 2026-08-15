@@ -55,9 +55,13 @@ with a missing required resource stops the line.
 
 ### Templates
 
-From scratch · HLA · HLA with Chamber and Aging Test · PCB Panel to Individual
-PCB · PCB Individual Finishing · PCBA Panel to Individual PCBA · PCBA Individual
-Finishing.
+- **From scratch**
+- **HLA**
+- **HLA with Chamber and Aging Test**
+- **PCB Panel to Individual PCB**
+- **PCB Individual Finishing**
+- **PCBA Panel to Individual PCBA**
+- **PCBA Individual Finishing**
 
 ### Files
 
@@ -126,8 +130,13 @@ share it, including commercially. The software is provided as-is.
 
 ### النماذج المتاحة
 
-من الصفر · HLA · HLA مع اختبار الغرفة والتقادم · PCB من اللوحة إلى PCB فردي ·
-تشطيب PCB فردي · PCBA من اللوحة إلى PCBA فردي · تشطيب PCBA فردي.
+- **من الصفر**
+- **HLA**
+- **HLA مع اختبار الغرفة والتقادم**
+- **PCB من اللوحة إلى PCB فردي**
+- **تشطيب PCB فردي**
+- **PCBA من اللوحة إلى PCBA فردي**
+- **تشطيب PCBA فردي**
 
 ### الملفات
 
