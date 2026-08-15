@@ -2,6 +2,8 @@
 
 ![Production Line Simulator](assets/Production-Line-Simulator-Icon.png)
 
+[English](#english) · [العربية](#العربية)
+
 ## English
 
 A simple browser simulator for production lines. Use it to study processes,
@@ -72,6 +74,8 @@ This project uses the [0BSD license](LICENSE). You may use, copy, modify, and
 share it, including commercially. The software is provided as-is.
 
 ## العربية
+
+[العودة إلى English](#english)
 
 محاكي بسيط لخطوط الإنتاج يعمل من المتصفح. يساعدك على دراسة العمليات،
 والمشغلين، والآلات الأوتوماتيكية، وطوابير الانتظار، وحركة المنتجات، وعنق
