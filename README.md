@@ -68,6 +68,7 @@ with a missing required resource stops the line.
 - **`release/Production-Line-Simulator-V1.html`** — shareable one-file release
 - **`index.html`**, **`styles.css`**, **`app.js`**, **`simulation.js`** — source
 - **`assets/`** — product logo and Windows icon
+- **`assets/Production-Line-Simulator-LinkedIn.gif`** — short animated demo for social posts
 - **`tests/`** — calculation, stress, and interface checks
 - **`LICENSE`** — 0BSD license
 
@@ -143,6 +144,7 @@ share it, including commercially. The software is provided as-is.
 - **`release/Production-Line-Simulator-V1.html`** — ملف الإصدار الواحد للمشاركة
 - **`index.html`** و **`styles.css`** و **`app.js`** و **`simulation.js`** — ملفات المصدر
 - **`assets/`** — شعار المنتج وأيقونة Windows
+- **`assets/Production-Line-Simulator-LinkedIn.gif`** — فيديو متحرك قصير للمنشورات
 - **`tests/`** — اختبارات الحسابات والضغط وواجهة الاستخدام
 - **`LICENSE`** — رخصة 0BSD
 
