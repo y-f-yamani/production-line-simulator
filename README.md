@@ -41,11 +41,14 @@ with a missing required resource stops the line.
 
 ### Main rules
 
-- **Cycle:** the slower workload controls the process.
-- **Capacity:** 3,600 divided by cycle time.
-- **Bottleneck:** the process with the lowest capacity.
-- **Transfer time:** movement time between processes; it does not change cycle.
-- **Batch/chamber:** several products can start and finish together.
+- **Cycle:** `max(manual time ÷ operators, machine time ÷ automatic machines)`;
+  the larger workload controls a regular process.
+- **Capacity:** for a regular process, `3,600 ÷ cycle` units per hour. Batch and
+  chamber capacity also depends on duration, batch size, schedule, and equipment.
+- **Bottleneck:** the process with the lowest effective capacity.
+- **Transfer time:** movement time between processes; it affects completion time
+  but does not change the regular-process cycle.
+- **Batch/chamber:** several products can start and finish together as one batch.
 - **Target quantity:** the number of finished products to make.
 - **PCB/PCBA panels:** one panel can become several individual boards at
   depaneling.
@@ -110,11 +113,14 @@ share it, including commercially. The software is provided as-is.
 
 ### القواعد الأساسية
 
-- **الدورة:** الوقت الأطول بين عمل المشغل وعمل الآلة.
-- **الطاقة:** عدد الوحدات التي يمكن إنتاجها في الساعة.
-- **عنق الزجاجة:** العملية ذات أقل طاقة.
-- **وقت النقل:** وقت انتقال المنتج ولا يغير زمن الدورة.
-- **عملية الدفعة:** يمكن أن تبدأ عدة منتجات وتنتهي معاً.
+- **الدورة:** `max(الوقت اليدوي ÷ عدد المشغلين، وقت الآلة ÷ عدد الآلات
+  الأوتوماتيكية)`؛ والقيمة الأكبر تتحكم في العملية العادية.
+- **الطاقة:** في العملية العادية `3,600 ÷ زمن الدورة` وحدة في الساعة. أما
+  الدفعات والغرف فتتأثر أيضاً بالمدة وحجم الدفعة والجدول وعدد المعدات.
+- **عنق الزجاجة:** العملية ذات أقل طاقة فعلية.
+- **وقت النقل:** وقت انتقال المنتج بين العمليات؛ يؤثر في وقت الإكمال ولا يغير
+  دورة العملية العادية.
+- **الدفعة/الغرفة:** يمكن أن تبدأ عدة منتجات وتنتهي معاً كدفعة واحدة.
 - **الكمية المطلوبة:** عدد المنتجات النهائية المطلوب إنتاجها.
 - **لوحات PCB وPCBA:** يمكن تحويل اللوحة إلى عدة منتجات فردية عند فصل اللوحة.
 
