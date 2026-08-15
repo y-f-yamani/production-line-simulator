@@ -138,9 +138,6 @@ share it, including commercially. The software is provided as-is.
 - **PCBA Panel → PCBA فردي**
 - **PCBA فردي**
 
-**PCB** هي لوحة الدائرة المطبوعة. **PCBA** هي لوحة PCB بعد تركيب المكونات
-الإلكترونية عليها.
-
 ### الملفات
 
 - **`release/Production-Line-Simulator-V1.html`** — ملف الإصدار الواحد للمشاركة
