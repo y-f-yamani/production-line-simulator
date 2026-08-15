@@ -8,10 +8,19 @@ A simple browser simulator for production lines. Use it to study processes,
 operators, automatic machines, queues, product flow, bottlenecks, and line
 capacity. It supports regular, batch, chamber, PCB, and PCBA processes.
 
-### Start
+## Run the simulator
 
-Open or share **`release/Production-Line-Simulator-V1.html`**. It is a complete
-standalone file for PC and mobile browsers. No installation, server, Node.js, or
+For beginners, click here:
+
+**[Download and run Production Line Simulator V1](release/Production-Line-Simulator-V1.html)**
+
+On the next GitHub page, click the **Download raw file** button, save the file,
+and open it with Chrome, Edge, Safari, or Firefox. No Node.js is required.
+
+### Start from the project files
+
+The standalone file is **`release/Production-Line-Simulator-V1.html`**. It is a
+complete file for PC and mobile browsers. No installation, server, Node.js, or
 internet connection is required.
 
 You can open **`index.html`** when editing the project source.
@@ -68,6 +77,13 @@ share it, including commercially. The software is provided as-is.
 الزجاجة، وطاقة الخط. ويدعم العمليات العادية وعمليات الدفعات والغرف وPCB وPCBA.
 
 ### التشغيل
+
+للمستخدم الجديد، اضغط هنا:
+
+**[تحميل وتشغيل Production Line Simulator V1](release/Production-Line-Simulator-V1.html)**
+
+في صفحة GitHub التالية اضغط زر **Download raw file**، ثم احفظ الملف وافتحه
+باستخدام Chrome أو Edge أو Safari أو Firefox. لا تحتاج إلى Node.js.
 
 افتح أو شارك الملف **`release/Production-Line-Simulator-V1.html`**. هذا ملف واحد
 متكامل يعمل على الكمبيوتر والهاتف، ولا يحتاج إلى تثبيت أو خادم أو Node.js أو
