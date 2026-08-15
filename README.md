@@ -7,7 +7,7 @@ The generic assembled-product symbol is used consistently for the main logo and 
 ## V1 release
 
 - Version: **1.0.0**
-- Release date: **2026-08-14**
+- Release date: **2026-08-15**
 - Developed by: **Yousuf Yamani**
 - Runtime dependencies: **none**
 - Supported use: open locally, host as a static site, or share the standalone HTML file
