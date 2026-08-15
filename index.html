@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b0e10" />
+  <meta name="application-name" content="Production Line Simulator V1" />
+  <link rel="icon" type="image/svg+xml" sizes="any" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='10'%20fill='%2307111e'/%3E%3Crect%20x='2'%20y='2'%20width='60'%20height='60'%20rx='8'%20fill='none'%20stroke='%23365e75'%20stroke-width='2'/%3E%3Cpath%20d='M12%2020H43L51%2028V45H12Z'%20fill='%230e2232'%20stroke='%2342d77d'%20stroke-width='2'/%3E%3Cpath%20d='M43%2020V28H51'%20fill='none'%20stroke='%23365e75'%20stroke-width='2'/%3E%3Crect%20x='17'%20y='26'%20width='18'%20height='12'%20rx='1.5'%20fill='%2307111e'%20stroke='%23365e75'/%3E%3Cpath%20d='M20%2033L24%2029L28%2034L32%2030'%20fill='none'%20stroke='%2342d77d'%20stroke-width='1.5'/%3E%3Ccircle%20cx='43'%20cy='34'%20r='4'%20fill='%230b2b21'%20stroke='%2342d77d'%20stroke-width='1.5'/%3E%3Cpath%20d='M38%2042H47M17%2045V49M44%2045V49'%20fill='none'%20stroke='%23365e75'%20stroke-width='2'/%3E%3C/svg%3E" />
+  <title>Production Line Simulator V1</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <div class="brand-lockup">
+        <div class="brand-mark" aria-hidden="true">
+          <svg viewBox="-22 -17 44 34" focusable="false">
+            <path d="M-18-9H12L18-3V10H-18Z" class="brand-product-body" />
+            <path d="M12-9V-3H18" class="brand-product-fold" />
+            <rect x="-13" y="-5" width="16" height="10" rx="1" class="brand-product-label" />
+            <path d="M-10 1L-6-2L-2 2L1-1" class="brand-product-detail" />
+            <circle cx="10" cy="1" r="3" class="brand-product-status" />
+            <path d="M6 7H14M-14 10V13M12 10V13" class="brand-product-feet" />
+          </svg>
+        </div>
+        <div>
+          <p class="eyebrow">Interactive manufacturing model</p>
+          <h1>Production Line Simulator V1</h1>
+          <p class="subtitle">Model processes, resources, queues, and bottlenecks.</p>
+        </div>
+      </div>
+      <div class="top-actions">
+        <button class="button button-quiet" id="dashboardPinBtn" type="button" aria-pressed="true" title="Unfreeze the dashboard and process flow">Unfreeze dashboard</button>
+        <button class="button button-quiet" id="presentationBtn">Presentation</button>
+        <button class="button button-quiet" id="resetBtn">Reset line</button>
+      </div>
+    </header>
+
+    <div class="dashboard-dock">
+      <nav class="line-nav" aria-label="Production lines">
+        <div class="line-tabs" id="lineTabs"></div>
+        <div class="line-actions">
+          <span id="networkSummary">1 line</span>
+          <div class="line-add-menu">
+            <button class="icon-button" id="addLineBtn" type="button" aria-label="Add another production line" aria-expanded="false" aria-controls="lineTemplateMenu">+ Add line</button>
+            <div class="line-template-menu" id="lineTemplateMenu" role="menu" aria-label="Choose a production line template" hidden>
+              <button type="button" role="menuitem" data-line-template="scratch"><strong>From scratch</strong><small>One editable manual process</small></button>
+              <button type="button" role="menuitem" data-line-template="hla"><strong>HLA</strong><small>Balanced high-level assembly flow</small></button>
+              <button type="button" role="menuitem" data-line-template="hlaChamberAging"><strong>HLA including Chamber and Aging Test</strong><small>HLA with environmental and aging processes</small></button>
+              <button type="button" role="menuitem" data-line-template="pcb"><strong>PCB · Panel to Individual</strong><small>Panels split into individual PCBs at depaneling</small></button>
+              <button type="button" role="menuitem" data-line-template="pcbIndividual"><strong>PCB · Individual Finishing</strong><small>Regular flow for already-depanelled PCBs</small></button>
+              <button type="button" role="menuitem" data-line-template="pcba"><strong>PCBA · Panel to Individual</strong><small>Assembly panels split into individual PCBAs</small></button>
+              <button type="button" role="menuitem" data-line-template="pcbaIndividual"><strong>PCBA · Individual Finishing</strong><small>Regular flow for already-depanelled PCBAs</small></button>
+            </div>
+          </div>
+          <button class="icon-button danger" id="deleteLineBtn" aria-label="Delete active production line">Remove</button>
+        </div>
+      </nav>
+      <section class="metrics" aria-label="Active line metrics">
+        <div class="metric accent"><span>Line capacity</span><strong id="throughputMetric">0.0</strong><small id="throughputDetail">after the line fills</small></div>
+        <div class="metric warning"><span>Bottleneck</span><strong id="bottleneckMetric">—</strong><small id="bottleneckDetail">effective cycle time</small></div>
+        <div class="metric"><span>Simulation time</span><strong id="simulationTimeMetric">00:00:00</strong><small id="simulationTimeStatus">elapsed simulated time</small></div>
+        <div class="metric accent"><span>Time to finish target</span><strong id="completionTimeMetric">—</strong><small id="completionTimeDetail">target completion estimate</small></div>
+        <div class="metric"><span>Operators</span><strong id="operatorsMetric">0 / 0</strong><small id="operatorStatusMetric">within available quantity</small></div>
+        <div class="metric"><span>Auto machines</span><strong id="equipmentMetric">0</strong><small>required machines assigned</small></div>
+        <div class="metric"><span>Batch progress</span><strong id="batchMetric">0 / 10</strong><small id="batchStatusMetric">not started</small></div>
+      </section>
+      <section class="simulation-wrap">
+        <div class="sim-head">
+          <div><span class="live-lamp"></span><span id="activeLineLabel">Line 1</span> · process flow</div>
+          <div class="line-zoom" role="group" aria-label="Production line zoom">
+            <button id="zoomOutBtn" type="button" aria-label="Zoom production line out">−</button>
+            <output id="zoomValue" aria-live="polite">100%</output>
+            <button id="zoomInBtn" type="button" aria-label="Zoom production line in">+</button>
+          </div>
+        </div>
+        <div class="svg-stage">
+          <svg id="lineSvg" class="line-svg" role="img" aria-label="Animated production line showing operators, equipment, product queues, and bottleneck"></svg>
+        </div>
+        <div class="flow-caption"><span><span id="startedUnitLabel">products started</span> <strong id="releasedMetric">0 / 10</strong></span><span><span id="finishedUnitLabel">products finished</span> <strong id="completedMetric">0 / 10</strong></span></div>
+      </section>
+    </div>
+
+    <section class="controls-grid">
+      <details class="control-block global-block settings-window line-controls-details" id="lineControlsDetails">
+        <summary>
+          <span>Line controls</span>
+          <span class="line-controls-summary-side"><span class="small-note">live model</span><span class="details-chevron" aria-hidden="true">⌄</span></span>
+        </summary>
+        <div class="details-panel settings-window-panel line-controls-panel">
+          <div class="four-fields compact-fields">
+          <label>Line name<input id="lineNameInput" type="text" maxlength="32" value="Line 1" /></label>
+          <label>Available operators<input id="availableInput" type="number" min="0" max="99" value="9" /></label>
+          <label><span id="targetQtyLabel">Target finished product qty</span><input id="targetQtyInput" type="number" min="1" max="10000" step="1" value="10" /><em>Changing the target starts a new batch.</em></label>
+          <label>Shift time<input id="shiftHoursInput" type="number" min="0.1" max="24" step="0.1" value="8" /><em>Production hours per working day.</em></label>
+        </div>
+        <div class="product-flow-row">
+          <label>Product type<select id="productTypeInput">
+            <option value="product">Generic product</option>
+            <option value="pcb">PCB</option>
+            <option value="pcb-panel">PCB Panel</option>
+            <option value="pcba">PCBA</option>
+            <option value="pcba-panel">PCBA Panel</option>
+          </select><em>For a new line, choose what one moving item represents.</em></label>
+          <p class="product-identity-help" id="productIdentityHelp">Each animated item is one individual product. Target qty counts finished products.</p>
+        </div>
+        <label>Simulation speed <output id="speedValue">1× real time</output><input id="speedInput" type="range" min="0.1" max="10" step="0.1" value="1" /><em>At 1×, one real second equals one simulated second. Use 0.1× for slow explanation.</em></label>
+        <div class="transport">
+          <button class="button" id="playBtn">Pause</button>
+          <button class="button button-quiet" id="stepBtn">+ 1 minute</button>
+          <button class="button button-quiet" id="hourBtn">+ 1 hour</button>
+          <button class="button button-quiet" id="dayBtn">+ 1 day</button>
+          <button class="button button-quiet" id="clearQueueBtn">Restart batch</button>
+        </div>
+          </div>
+      </details>
+    </section>
+
+    <section class="stations-section">
+      <details class="settings-window process-settings-details" id="processSettingsDetails">
+        <summary>
+          <span>Process and resource settings</span>
+          <span class="settings-summary-side"><span class="small-note">stacked rows · changes apply immediately</span><span class="details-chevron" aria-hidden="true">⌄</span></span>
+        </summary>
+        <div class="details-panel settings-window-panel process-settings-panel">
+          <div class="process-settings-intro">
+            <ul class="busy-explainer">
+              <li class="cycle-formula"><strong>Cycle time formula:</strong> <code>max(Manual work ÷ assigned operators, Machine time ÷ assigned automatic machines)</code>. The larger result sets the cycle. A 0-second workload counts as 0; a required workload with no assigned resource stops the process.</li>
+              <li><strong>Batch / Chamber:</strong> capacity uses processing percentage, batch duration, items per batch, batch-equipment count, and start schedule. Use 100% for mandatory testing; use a lower percentage only for sampling.</li>
+              <li><strong>Transfer time:</strong> covers movement and handling between processes.</li>
+              <li><strong>Busy time:</strong> line throughput ÷ process capacity.</li>
+            </ul>
+            <button class="button button-quiet process-toggle-all" id="toggleAllProcessesBtn" type="button">Expand all processes</button>
+          </div>
+          <div id="stationEditor" class="station-editor"></div>
+          <div class="add-process-menu">
+            <button class="add-process" id="addProcessBtn" type="button" aria-expanded="false" aria-controls="processTypeMenu">+ Add process</button>
+            <div class="process-type-menu" id="processTypeMenu" role="menu" aria-label="Choose a process type" hidden>
+              <button type="button" role="menuitem" data-add-process-type="unit"><strong>Regular process</strong><small>Manual work and optional automatic machine</small></button>
+              <button type="button" role="menuitem" data-add-process-type="batch"><strong>Batch / Chamber process</strong><small>Scheduled batches with capacity, duration, and batch equipment</small></button>
+              <button type="button" role="menuitem" data-add-process-type="depanel"><strong>Panel depaneling</strong><small>Converts one panel into multiple individual PCB or PCBA units</small></button>
+            </div>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <footer>
+      <span>Production Line Simulator V1</span>
+      <span>Developed by Yousuf Yamani · 14 August 2026</span>
+    </footer>
+  </main>
+  <script src="simulation.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

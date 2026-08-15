@@ -1,0 +1,13 @@
+{
+  "name": "production-line-simulator",
+  "version": "1.0.0",
+  "private": true,
+  "license": "0BSD",
+  "description": "A standalone browser-based production line capacity and flow simulator.",
+  "scripts": {
+    "build": "node scripts/build-standalone.js",
+    "build:windows-icon": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/build-windows-icon.ps1",
+    "create:desktop-shortcut": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/create-desktop-shortcut.ps1",
+    "test": "node tests/verify-simulator.js && node tests/stress-simulator.js && node tests/verify-ui.js"
+  }
+}

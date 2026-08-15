@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Production Line Simulator generic product icon</title>
+  <desc id="desc">A navy industrial tile containing the green outlined generic assembled product used by the simulator.</desc>
+  <rect width="256" height="256" rx="40" fill="#07111e"/>
+  <rect x="8" y="8" width="240" height="240" rx="32" fill="none" stroke="#365e75" stroke-width="8"/>
+  <path d="M52 80H172L204 112V180H52Z" fill="#0e2232" stroke="#42d77d" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M172 80V112H204" fill="none" stroke="#365e75" stroke-width="7" stroke-linejoin="round"/>
+  <rect x="72" y="104" width="72" height="48" rx="6" fill="#07111e" stroke="#365e75" stroke-width="5"/>
+  <path d="M84 136L100 120L116 140L132 124" fill="none" stroke="#42d77d" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="172" cy="136" r="16" fill="#0b2b21" stroke="#42d77d" stroke-width="6"/>
+  <path d="M152 168H188M72 180V196M176 180V196" fill="none" stroke="#365e75" stroke-width="8" stroke-linecap="round"/>
+</svg>
