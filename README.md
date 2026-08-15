@@ -10,12 +10,15 @@ capacity. It supports regular, batch, chamber, PCB, and PCBA processes.
 
 ## Run the simulator
 
-For beginners, click here:
+### Run the simulator — steps
 
-**[Download and run Production Line Simulator V1](release/Production-Line-Simulator-V1.html)**
+1. Click **`release`** in the file list.
+2. Click **`Production-Line-Simulator-V1.html`**.
+3. Click the **Download raw file** button.
+4. Save the file on your computer or phone.
+5. Open the saved file with Chrome, Edge, Safari, or Firefox.
 
-On the next GitHub page, click the **Download raw file** button, save the file,
-and open it with Chrome, Edge, Safari, or Firefox. No Node.js is required.
+No Node.js is required.
 
 ### Start from the project files
 
@@ -78,12 +81,15 @@ share it, including commercially. The software is provided as-is.
 
 ### التشغيل
 
-للمستخدم الجديد، اضغط هنا:
+### خطوات تشغيل المحاكي
 
-**[تحميل وتشغيل Production Line Simulator V1](release/Production-Line-Simulator-V1.html)**
+1. اضغط على مجلد **`release`** في قائمة الملفات.
+2. اضغط على ملف **`Production-Line-Simulator-V1.html`**.
+3. اضغط زر **Download raw file**.
+4. احفظ الملف على الكمبيوتر أو الهاتف.
+5. افتح الملف باستخدام Chrome أو Edge أو Safari أو Firefox.
 
-في صفحة GitHub التالية اضغط زر **Download raw file**، ثم احفظ الملف وافتحه
-باستخدام Chrome أو Edge أو Safari أو Firefox. لا تحتاج إلى Node.js.
+لا تحتاج إلى Node.js.
 
 افتح أو شارك الملف **`release/Production-Line-Simulator-V1.html`**. هذا ملف واحد
 متكامل يعمل على الكمبيوتر والهاتف، ولا يحتاج إلى تثبيت أو خادم أو Node.js أو
