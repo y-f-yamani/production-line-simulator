@@ -133,9 +133,9 @@ share it, including commercially. The software is provided as-is.
 - **من الصفر**
 - **HLA**
 - **HLA مع Chamber و Aging Test**
-- **PCB Panel → PCB فردي**
+- **PCB Panel إلى PCB فردي**
 - **PCB فردي**
-- **PCBA Panel → PCBA فردي**
+- **PCBA Panel إلى PCBA فردي**
 - **PCBA فردي**
 
 ### الملفات
