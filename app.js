@@ -1194,6 +1194,16 @@ function bindEvents() {
     document.body.classList.toggle('dashboard-unpinned', !state.dashboardPinned);
     syncControls();
   });
+  $('revisionHistoryBtn').addEventListener('click', () => {
+    const dialog = $('revisionHistoryDialog');
+    if (typeof dialog.showModal === 'function') dialog.showModal();
+    else dialog.setAttribute('open', '');
+  });
+  $('closeRevisionHistoryBtn').addEventListener('click', () => {
+    const dialog = $('revisionHistoryDialog');
+    if (typeof dialog.close === 'function') dialog.close();
+    else dialog.removeAttribute('open');
+  });
   $('presentationBtn').addEventListener('click', () => {
     state.presentation = !state.presentation;
     document.body.classList.toggle('presentation', state.presentation);

@@ -2,6 +2,13 @@
 
 All notable changes to Production Line Simulator are documented here.
 
+## 1.1.0 — 2026-08-19
+
+- Updated the application to Production Line Simulator V1.1.
+- Added a Revision history button beside the dashboard freeze control.
+- Added a responsive revision table explaining the V1.1 and V1.0 updates.
+- Kept the standalone filename `Production-Line-Simulator-V1.html` for easy sharing.
+
 ## 1.0.0 — 2026-08-15
 
 - Added a permanent release-candidate stress suite covering 192 formula combinations, 10,000-product runs, a 48-process line, parallel/sampled/scheduled batches, PCB/PCBA conversion, and multi-line isolation.

@@ -1,6 +1,6 @@
-# Production Line Simulator V1 — Release Validation
+# Production Line Simulator V1.1 — Release Validation
 
-Validation date: **15 August 2026**  
+Validation date: **19 August 2026**  
 Release file: `release/Production-Line-Simulator-V1.html`
 
 ## English
@@ -18,7 +18,7 @@ that the shared one-file release was checked on PC and mobile.
 
 ### Result
 
-V1 passed the calculation, high-volume, interface, mobile-layout, and
+V1.1 passed the calculation, high-volume, interface, mobile-layout, and
 standalone-file checks. No release-blocking problem was found.
 
 ### Main checks
@@ -55,7 +55,7 @@ The second test confirms that the standalone file still works after rebuilding.
 
 ### ما هو هذا الملف؟
 
-هذا تقرير مختصر لاختبار الإصدار. يوضح ما تم فحصه قبل نشر الإصدار V1.
+هذا تقرير مختصر لاختبار الإصدار. يوضح ما تم فحصه قبل نشر الإصدار V1.1.
 
 ### ما فائدته؟
 
@@ -65,7 +65,7 @@ The second test confirms that the standalone file still works after rebuilding.
 
 ### النتيجة
 
-نجح الإصدار V1 في اختبارات الحسابات، والكمية الكبيرة من المنتجات، وواجهة
+نجح الإصدار V1.1 في اختبارات الحسابات، والكمية الكبيرة من المنتجات، وواجهة
 الاستخدام، وتصميم الهاتف، وملف HTML المستقل. لم يتم العثور على مشكلة تمنع النشر.
 
 ### أهم الاختبارات

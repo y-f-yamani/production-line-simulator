@@ -8,5 +8,5 @@ if errorlevel 1 (
   exit /b 1
 )
 echo.
-echo Production Line Simulator V1 shortcut created on the Desktop.
+echo Production Line Simulator V1.1 shortcut created on the Desktop.
 pause

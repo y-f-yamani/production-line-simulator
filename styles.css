@@ -246,6 +246,21 @@ label em { display: block; margin-top: 3px; color: var(--muted); font-style: nor
 
 footer { display: grid; grid-template-columns: auto minmax(260px, 1fr); align-items: start; gap: 10px 24px; border-top: 1px solid var(--line); padding-top: 15px; }
 footer span:last-child { text-align: right; text-transform: none; letter-spacing: .04em; }
+.revision-dialog { width: min(760px, calc(100vw - 28px)); max-height: min(720px, calc(100vh - 32px)); padding: 0; border: 1px solid var(--line-strong); border-radius: 2px; color: var(--ink); background: var(--panel); box-shadow: 0 24px 70px rgba(0, 0, 0, .65); }
+.revision-dialog::backdrop { background: rgba(2, 8, 15, .78); backdrop-filter: blur(3px); }
+.revision-dialog[open] { animation: revision-dialog-in .18s ease-out; }
+.revision-dialog-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; padding: 18px 18px 14px; border-bottom: 1px solid var(--line); background: var(--panel-2); }
+.revision-dialog-head .eyebrow { margin-bottom: 4px; }
+.revision-dialog h2 { margin: 0; font-size: 22px; font-weight: 500; letter-spacing: -.02em; }
+.revision-dialog-head .icon-button { min-width: 36px; font-size: 22px; line-height: 1; padding: 5px 9px; }
+.revision-table-wrap { overflow-x: auto; padding: 4px 18px 18px; }
+.revision-table { width: 100%; min-width: 560px; border-collapse: collapse; text-align: left; }
+.revision-table th, .revision-table td { padding: 12px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.revision-table thead th { color: var(--muted); font: 10px var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+.revision-table tbody th { width: 74px; color: var(--accent); font: 14px var(--mono); font-weight: 400; white-space: nowrap; }
+.revision-table tbody td { color: var(--ink); font-size: 13px; }
+.revision-table tbody td:nth-child(2) { width: 120px; color: var(--muted); white-space: nowrap; font: 12px var(--mono); }
+@keyframes revision-dialog-in { from { opacity: 0; transform: translateY(-8px) scale(.985); } to { opacity: 1; transform: translateY(0) scale(1); } }
 .presentation .controls-grid, .presentation .stations-section, .presentation footer, .presentation .line-actions, .presentation #resetBtn { display: none; }
 .presentation .app-shell { max-width: none; padding: 18px 24px 32px; }
 .presentation .dashboard-dock { position: static; box-shadow: none; }
@@ -327,6 +342,8 @@ footer span:last-child { text-align: right; text-transform: none; letter-spacing
   .process-title-row { align-items: flex-start; }
   .station-actions button { width: 29px; height: 29px; }
   .resource-pair, .timing-grid, .batch-settings-grid { grid-template-columns: 1fr; }
+  .revision-dialog-head { padding: 14px 12px 11px; }
+  .revision-table-wrap { padding-inline: 8px; }
   .timing-grid label:last-child { grid-column: auto; }
   .batch-settings-heading { align-items: flex-start; flex-direction: column; gap: 2px; }
 }

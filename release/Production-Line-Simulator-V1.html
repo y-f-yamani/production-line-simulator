@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#0b0e10" />
-  <meta name="application-name" content="Production Line Simulator V1" />
+  <meta name="application-name" content="Production Line Simulator V1.1" />
   <link rel="icon" type="image/svg+xml" sizes="any" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='10'%20fill='%2307111e'/%3E%3Crect%20x='2'%20y='2'%20width='60'%20height='60'%20rx='8'%20fill='none'%20stroke='%23365e75'%20stroke-width='2'/%3E%3Cpath%20d='M12%2020H43L51%2028V45H12Z'%20fill='%230e2232'%20stroke='%2342d77d'%20stroke-width='2'/%3E%3Cpath%20d='M43%2020V28H51'%20fill='none'%20stroke='%23365e75'%20stroke-width='2'/%3E%3Crect%20x='17'%20y='26'%20width='18'%20height='12'%20rx='1.5'%20fill='%2307111e'%20stroke='%23365e75'/%3E%3Cpath%20d='M20%2033L24%2029L28%2034L32%2030'%20fill='none'%20stroke='%2342d77d'%20stroke-width='1.5'/%3E%3Ccircle%20cx='43'%20cy='34'%20r='4'%20fill='%230b2b21'%20stroke='%2342d77d'%20stroke-width='1.5'/%3E%3Cpath%20d='M38%2042H47M17%2045V49M44%2045V49'%20fill='none'%20stroke='%23365e75'%20stroke-width='2'/%3E%3C/svg%3E" />
-  <title>Production Line Simulator V1</title>
+  <title>Production Line Simulator V1.1</title>
   <style>
 :root {
   color-scheme: dark;
@@ -256,6 +256,21 @@ label em { display: block; margin-top: 3px; color: var(--muted); font-style: nor
 
 footer { display: grid; grid-template-columns: auto minmax(260px, 1fr); align-items: start; gap: 10px 24px; border-top: 1px solid var(--line); padding-top: 15px; }
 footer span:last-child { text-align: right; text-transform: none; letter-spacing: .04em; }
+.revision-dialog { width: min(760px, calc(100vw - 28px)); max-height: min(720px, calc(100vh - 32px)); padding: 0; border: 1px solid var(--line-strong); border-radius: 2px; color: var(--ink); background: var(--panel); box-shadow: 0 24px 70px rgba(0, 0, 0, .65); }
+.revision-dialog::backdrop { background: rgba(2, 8, 15, .78); backdrop-filter: blur(3px); }
+.revision-dialog[open] { animation: revision-dialog-in .18s ease-out; }
+.revision-dialog-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; padding: 18px 18px 14px; border-bottom: 1px solid var(--line); background: var(--panel-2); }
+.revision-dialog-head .eyebrow { margin-bottom: 4px; }
+.revision-dialog h2 { margin: 0; font-size: 22px; font-weight: 500; letter-spacing: -.02em; }
+.revision-dialog-head .icon-button { min-width: 36px; font-size: 22px; line-height: 1; padding: 5px 9px; }
+.revision-table-wrap { overflow-x: auto; padding: 4px 18px 18px; }
+.revision-table { width: 100%; min-width: 560px; border-collapse: collapse; text-align: left; }
+.revision-table th, .revision-table td { padding: 12px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.revision-table thead th { color: var(--muted); font: 10px var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+.revision-table tbody th { width: 74px; color: var(--accent); font: 14px var(--mono); font-weight: 400; white-space: nowrap; }
+.revision-table tbody td { color: var(--ink); font-size: 13px; }
+.revision-table tbody td:nth-child(2) { width: 120px; color: var(--muted); white-space: nowrap; font: 12px var(--mono); }
+@keyframes revision-dialog-in { from { opacity: 0; transform: translateY(-8px) scale(.985); } to { opacity: 1; transform: translateY(0) scale(1); } }
 .presentation .controls-grid, .presentation .stations-section, .presentation footer, .presentation .line-actions, .presentation #resetBtn { display: none; }
 .presentation .app-shell { max-width: none; padding: 18px 24px 32px; }
 .presentation .dashboard-dock { position: static; box-shadow: none; }
@@ -337,6 +352,8 @@ footer span:last-child { text-align: right; text-transform: none; letter-spacing
   .process-title-row { align-items: flex-start; }
   .station-actions button { width: 29px; height: 29px; }
   .resource-pair, .timing-grid, .batch-settings-grid { grid-template-columns: 1fr; }
+  .revision-dialog-head { padding: 14px 12px 11px; }
+  .revision-table-wrap { padding-inline: 8px; }
   .timing-grid label:last-child { grid-column: auto; }
   .batch-settings-heading { align-items: flex-start; flex-direction: column; gap: 2px; }
 }
@@ -363,12 +380,13 @@ footer span:last-child { text-align: right; text-transform: none; letter-spacing
         </div>
         <div>
           <p class="eyebrow">Interactive manufacturing model</p>
-          <h1>Production Line Simulator V1</h1>
+          <h1>Production Line Simulator V1.1</h1>
           <p class="subtitle">Model processes, resources, queues, and bottlenecks.</p>
         </div>
       </div>
       <div class="top-actions">
         <button class="button button-quiet" id="dashboardPinBtn" type="button" aria-pressed="true" title="Unfreeze the dashboard and process flow">Unfreeze dashboard</button>
+        <button class="button button-quiet" id="revisionHistoryBtn" type="button" aria-haspopup="dialog">Revision history</button>
         <button class="button button-quiet" id="presentationBtn">Presentation</button>
         <button class="button button-quiet" id="resetBtn">Reset line</button>
       </div>
@@ -483,8 +501,29 @@ footer span:last-child { text-align: right; text-transform: none; letter-spacing
       </details>
     </section>
 
+    <dialog class="revision-dialog" id="revisionHistoryDialog" aria-labelledby="revisionHistoryTitle">
+      <div class="revision-dialog-head">
+        <div>
+          <p class="eyebrow">Release notes</p>
+          <h2 id="revisionHistoryTitle">Revision history</h2>
+        </div>
+        <button class="icon-button" id="closeRevisionHistoryBtn" type="button" aria-label="Close revision history">×</button>
+      </div>
+      <div class="revision-table-wrap">
+        <table class="revision-table">
+          <thead>
+            <tr><th>Version</th><th>Date</th><th>Updates</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">V1.1</th><td>19 Aug 2026</td><td>Added this revision history window beside the dashboard controls. Kept the standalone release filename so the simulator remains easy to share.</td></tr>
+            <tr><th scope="row">V1.0</th><td>15 Aug 2026</td><td>First public release with regular, batch, chamber, PCB, PCBA, panel conversion, multi-line, responsive mobile, and validation features.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </dialog>
+
     <footer>
-      <span>Production Line Simulator V1</span>
+      <span>Production Line Simulator V1.1</span>
       <span>Developed by Yousuf Yamani · 15 August 2026</span>
     </footer>
   </main>
@@ -2457,6 +2496,16 @@ function bindEvents() {
     state.dashboardPinned = !state.dashboardPinned;
     document.body.classList.toggle('dashboard-unpinned', !state.dashboardPinned);
     syncControls();
+  });
+  $('revisionHistoryBtn').addEventListener('click', () => {
+    const dialog = $('revisionHistoryDialog');
+    if (typeof dialog.showModal === 'function') dialog.showModal();
+    else dialog.setAttribute('open', '');
+  });
+  $('closeRevisionHistoryBtn').addEventListener('click', () => {
+    const dialog = $('revisionHistoryDialog');
+    if (typeof dialog.close === 'function') dialog.close();
+    else dialog.removeAttribute('open');
   });
   $('presentationBtn').addEventListener('click', () => {
     state.presentation = !state.presentation;

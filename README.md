@@ -1,4 +1,4 @@
-# Production Line Simulator V1
+# Production Line Simulator V1.1
 
 ![Production Line Simulator](assets/Production-Line-Simulator-Icon.png)
 
@@ -14,7 +14,7 @@ capacity. It supports regular, batch, chamber, PCB, and PCBA processes.
 
 ### Run the simulator — steps
 
-1. Click [**Download the simulator directly**](https://github.com/y-f-yamani/production-line-simulator/releases/download/v1.0.0/Production-Line-Simulator-V1.html).
+1. Click [**Download the simulator directly**](https://github.com/y-f-yamani/production-line-simulator/releases/download/v1.1.0/Production-Line-Simulator-V1.html).
 2. Save the downloaded file on your computer or phone.
 3. Open the saved file with Chrome, Edge, Safari, or Firefox.
 
@@ -65,7 +65,7 @@ with a missing required resource stops the line.
 
 ### Files
 
-- **`release/Production-Line-Simulator-V1.html`** — shareable one-file release
+- **`release/Production-Line-Simulator-V1.html`** — shareable one-file release; the filename stays the same in V1.1
 - **`index.html`**, **`styles.css`**, **`app.js`**, **`simulation.js`** — source
 - **`assets/`** — product logo and Windows icon
 - **`assets/Production-Line-Simulator-LinkedIn.gif`** — short animated demo for social posts
@@ -93,7 +93,7 @@ share it, including commercially. The software is provided as-is.
 
 ### خطوات تشغيل المحاكي
 
-1. اضغط على [**تحميل المحاكي مباشرة**](https://github.com/y-f-yamani/production-line-simulator/releases/download/v1.0.0/Production-Line-Simulator-V1.html).
+1. اضغط على [**تحميل المحاكي مباشرة**](https://github.com/y-f-yamani/production-line-simulator/releases/download/v1.1.0/Production-Line-Simulator-V1.html).
 2. احفظ الملف الذي تم تنزيله على الكمبيوتر أو الهاتف.
 3. افتح الملف باستخدام Chrome أو Edge أو Safari أو Firefox.
 
@@ -141,7 +141,7 @@ share it, including commercially. The software is provided as-is.
 
 ### الملفات
 
-- **`release/Production-Line-Simulator-V1.html`** — ملف الإصدار الواحد للمشاركة
+- **`release/Production-Line-Simulator-V1.html`** — ملف الإصدار الواحد للمشاركة؛ يبقى اسم الملف نفسه في V1.1
 - **`index.html`** و **`styles.css`** و **`app.js`** و **`simulation.js`** — ملفات المصدر
 - **`assets/`** — شعار المنتج وأيقونة Windows
 - **`assets/Production-Line-Simulator-LinkedIn.gif`** — فيديو متحرك قصير للمنشورات

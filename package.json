@@ -1,6 +1,6 @@
 {
   "name": "production-line-simulator",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "license": "0BSD",
   "description": "A standalone browser-based production line capacity and flow simulator.",
