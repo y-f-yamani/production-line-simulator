@@ -39,6 +39,9 @@ You can open **`index.html`** when editing the project source.
 The next product starts automatically. Products do not skip processes. A process
 with a missing required resource stops the line.
 
+Use **Light mode** or **Dark mode** in the top controls. The selected mode is
+remembered on the same device.
+
 ### Main rules
 
 - **Cycle:** `max(manual time ÷ operators, machine time ÷ automatic machines)`;
@@ -115,6 +118,9 @@ share it, including commercially. The software is provided as-is.
 
 يبدأ المنتج التالي تلقائياً، ولا يتجاوز أي منتج أي عملية. إذا احتاجت العملية إلى
 مورد غير متوفر، يتوقف الخط.
+
+استخدم زر **Light mode** أو **Dark mode** في أعلى المحاكي لتغيير مظهر الواجهة.
+يتم حفظ الاختيار على الجهاز نفسه.
 
 ### القواعد الأساسية
 

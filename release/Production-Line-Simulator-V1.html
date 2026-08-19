@@ -29,6 +29,34 @@
   --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
 }
 
+body.light-theme {
+  color-scheme: light;
+  --paper: #f3f7fa;
+  --panel: #ffffff;
+  --panel-2: #e9f0f5;
+  --ink: #142633;
+  --muted: #587080;
+  --line: #c8d7e0;
+  --line-strong: #8eaab9;
+  --accent: #168a4b;
+  --accent-soft: #dff3e7;
+  --red: #bd3c35;
+  --red-soft: #fde9e7;
+  --orange: #b86a13;
+  --orange-soft: #fff0d9;
+  --green: #3c8056;
+  --green-soft: #e3f0e7;
+  background: radial-gradient(circle at 50% -25%, #ffffff 0, var(--paper) 52%);
+}
+
+body.light-theme .dashboard-dock,
+body.light-theme .simulation-wrap { background: rgba(243, 247, 250, .96); }
+body.light-theme .dashboard-dock { box-shadow: 0 12px 26px rgba(38, 71, 88, .15); }
+body.light-theme .line-template-menu,
+body.light-theme .process-type-menu { box-shadow: 0 14px 30px rgba(38, 71, 88, .18); }
+body.light-theme .revision-dialog { box-shadow: 0 24px 70px rgba(38, 71, 88, .25); }
+body.light-theme .revision-dialog::backdrop { background: rgba(28, 51, 63, .34); }
+
 * { box-sizing: border-box; }
 html { background: var(--paper); }
 body { margin: 0; min-width: 320px; background: radial-gradient(circle at 50% -25%, #102b42 0, var(--paper) 43%); background-attachment: fixed; color: var(--ink); font-family: var(--font); font-size: 14px; line-height: 1.45; }
@@ -387,6 +415,7 @@ footer span:last-child { text-align: right; text-transform: none; letter-spacing
       <div class="top-actions">
         <button class="button button-quiet" id="dashboardPinBtn" type="button" aria-pressed="true" title="Unfreeze the dashboard and process flow">Unfreeze dashboard</button>
         <button class="button button-quiet" id="revisionHistoryBtn" type="button" aria-haspopup="dialog">Revision history</button>
+        <button class="button button-quiet" id="themeToggleBtn" type="button" aria-pressed="false">Light mode</button>
         <button class="button button-quiet" id="presentationBtn">Presentation</button>
         <button class="button button-quiet" id="resetBtn">Reset line</button>
       </div>
@@ -1329,6 +1358,7 @@ const state = {
   dashboardPinned: true,
   playing: true,
   presentation: false,
+  theme: (() => { try { return localStorage.getItem('production-line-simulator-theme') === 'light' ? 'light' : 'dark'; } catch (error) { return 'dark'; } })(),
   lastTime: performance.now(),
   lastUiUpdate: 0,
   flashEditors: false,
@@ -1901,6 +1931,15 @@ function syncControls() {
   $('dashboardPinBtn').title = state.dashboardPinned
     ? 'Unfreeze the dashboard and process flow'
     : 'Freeze the dashboard and process flow at the top';
+  const lightMode = state.theme === 'light';
+  $('themeToggleBtn').textContent = lightMode ? 'Dark mode' : 'Light mode';
+  $('themeToggleBtn').setAttribute('aria-pressed', String(lightMode));
+  $('themeToggleBtn').title = lightMode ? 'Switch to dark mode' : 'Switch to light mode';
+}
+
+function applyTheme() {
+  document.body.classList.toggle('light-theme', state.theme === 'light');
+  syncControls();
 }
 
 function renderSvg() {
@@ -2502,6 +2541,12 @@ function bindEvents() {
     if (typeof dialog.showModal === 'function') dialog.showModal();
     else dialog.setAttribute('open', '');
   });
+  $('themeToggleBtn').addEventListener('click', () => {
+    state.theme = state.theme === 'light' ? 'dark' : 'light';
+    try { localStorage.setItem('production-line-simulator-theme', state.theme); } catch (error) { /* file:// may restrict storage */ }
+    applyTheme();
+    renderSvg();
+  });
   $('closeRevisionHistoryBtn').addEventListener('click', () => {
     const dialog = $('revisionHistoryDialog');
     if (typeof dialog.close === 'function') dialog.close();
@@ -2547,6 +2592,7 @@ function animationLoop(time) {
 }
 
 bindEvents();
+applyTheme();
 refresh();
 requestAnimationFrame(animationLoop);
 })();

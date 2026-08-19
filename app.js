@@ -26,6 +26,7 @@ const state = {
   dashboardPinned: true,
   playing: true,
   presentation: false,
+  theme: (() => { try { return localStorage.getItem('production-line-simulator-theme') === 'light' ? 'light' : 'dark'; } catch (error) { return 'dark'; } })(),
   lastTime: performance.now(),
   lastUiUpdate: 0,
   flashEditors: false,
@@ -598,6 +599,15 @@ function syncControls() {
   $('dashboardPinBtn').title = state.dashboardPinned
     ? 'Unfreeze the dashboard and process flow'
     : 'Freeze the dashboard and process flow at the top';
+  const lightMode = state.theme === 'light';
+  $('themeToggleBtn').textContent = lightMode ? 'Dark mode' : 'Light mode';
+  $('themeToggleBtn').setAttribute('aria-pressed', String(lightMode));
+  $('themeToggleBtn').title = lightMode ? 'Switch to dark mode' : 'Switch to light mode';
+}
+
+function applyTheme() {
+  document.body.classList.toggle('light-theme', state.theme === 'light');
+  syncControls();
 }
 
 function renderSvg() {
@@ -1199,6 +1209,12 @@ function bindEvents() {
     if (typeof dialog.showModal === 'function') dialog.showModal();
     else dialog.setAttribute('open', '');
   });
+  $('themeToggleBtn').addEventListener('click', () => {
+    state.theme = state.theme === 'light' ? 'dark' : 'light';
+    try { localStorage.setItem('production-line-simulator-theme', state.theme); } catch (error) { /* file:// may restrict storage */ }
+    applyTheme();
+    renderSvg();
+  });
   $('closeRevisionHistoryBtn').addEventListener('click', () => {
     const dialog = $('revisionHistoryDialog');
     if (typeof dialog.close === 'function') dialog.close();
@@ -1244,6 +1260,7 @@ function animationLoop(time) {
 }
 
 bindEvents();
+applyTheme();
 refresh();
 requestAnimationFrame(animationLoop);
 })();

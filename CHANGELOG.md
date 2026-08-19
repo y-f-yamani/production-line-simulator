@@ -7,6 +7,7 @@ All notable changes to Production Line Simulator are documented here.
 - Updated the application to Production Line Simulator V1.1.
 - Added a Revision history button beside the dashboard freeze control.
 - Added a responsive revision table explaining the V1.1 and V1.0 updates.
+- Added a Light mode / Dark mode switch with saved device preference.
 - Kept the standalone filename `Production-Line-Simulator-V1.html` for easy sharing.
 
 ## 1.0.0 — 2026-08-15
